@@ -5,6 +5,7 @@ const WORDS = [
   'REACT', 'FUNCTION', 'COMPUTER SCIENCE',
   'SEPARATION OF CONCERNS'
 ];
+const WRONG_GUESS_HUNG_COUNT = 6;
 
 /*----- app's state (variables) -----*/
 let secretWord;
@@ -22,8 +23,21 @@ document.getElementById('letters')
 /*----- functions -----*/
 init();
 
+function isGameOver() {
+  return (
+    secretWord === guessWord ||
+    wrongLetters.length === WRONG_GUESS_HUNG_COUNT
+  );
+}
+
 function handleLetterClick(evt) {
-  if (evt.target.tagName !== 'BUTTON') return;
+  let letter = evt.target.textContent;
+  if (
+    evt.target.tagName !== 'BUTTON' ||
+    // check if letter is in the usedLetters array
+    usedLetters.includes(letter) ||
+    isGameOver()
+  ) return;
   console.dir(evt.target)
 }
 
