@@ -16,10 +16,14 @@ let wrongLetters;
 /*----- cached element references -----*/
 const guessEl = document.getElementById('guess');
 const letterBtns = document.querySelectorAll('#letters > button');
+const msgEl = document.querySelector('h1');
+const replayBtn = document.getElementById('replay');
 
 /*----- event listeners -----*/
 document.getElementById('letters')
   .addEventListener('click', handleLetterClick);
+replayBtn.addEventListener('click', init);
+
 
 /*----- functions -----*/
 init();
@@ -51,7 +55,7 @@ function handleLetterClick(evt) {
     // Bogus guess :(
     wrongLetters.push(letter);
   }
-
+  replayBtn.style.visibility = isGameOver() ? 'visible' : 'hidden';
   render();
 }
 
@@ -69,6 +73,18 @@ function render() {
       btn.className = '';
     }
   });
+
+  renderMessage();
+}
+
+function renderMessage() {
+  if (secretWord === guessWord) {
+    msgEl.textContent = "Congrats! You guessed the word!";
+  } else if (wrongLetters.length === WRONG_GUESS_HUNG_COUNT) {
+    msgEl.textContent = "Sorry, you've been hung!";
+  } else {
+    msgEl.textContent = 'Good Luck!';
+  }
 }
 
 function init() {
