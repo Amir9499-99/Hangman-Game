@@ -5,7 +5,7 @@
 
 :root {
   --dark-accent: #BB4C3A;
-  --accent-light: #76bb76;
+  --accent-light: #76BB76;
 }
 
 body {
@@ -21,9 +21,10 @@ h1 {
 }
 
 #guess {
-  font-size: 6vmin;
+  font-size: 5vmin;
   letter-spacing: 2vmin;
   color: grey;
+  text-align: center;
 }
 
 header {
@@ -36,8 +37,8 @@ header {
 }
 
 #gallows {
-  width: 15vmin;
-  height: 40vmin;
+  width: 11.25vmin;
+  height: 30vmin;
   background-size: cover;
   background-image: url(../imgs/hangman.png);
 }
@@ -50,15 +51,15 @@ header {
 }
 
 #letters button {
-  font-size: 3vmin;
+  font-size: 2vmin;
   font-weight: bold;
-  width: 6vmin;
-  height: 6vmin;
+  width: 5vmin;
+  height: 5vmin;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: .5vmin;
-  border: .5vmin solid grey;
+  border: .4vmin solid grey;
   color: grey;
   border-radius: 1vmin;
   outline: none;
@@ -80,4 +81,21 @@ header {
   background-color: var(--accent-light);
   color: grey;
   cursor: not-allowed;
+}
+
+#replay {
+  font-size: 2vmin;
+  font-weight: bold;
+  padding: 2vmin;
+  margin-top: 4vmin;
+  border: .3vmin solid grey;
+  color: grey;
+  border-radius: 2vmin;
+  outline: none;
+  cursor: pointer;
+}
+
+#replay:hover {
+  background-color: grey;
+  color: white;
 }
