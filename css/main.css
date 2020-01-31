@@ -4,8 +4,8 @@
 }
 
 :root {
-  --dark-accent: #BB4C3A;
-  --accent-light: #76BB76;
+  --accent-dark: #BB4C3A;
+  --accent-light: #6FB26F;
 }
 
 body {
@@ -63,13 +63,13 @@ header {
   color: grey;
   border-radius: 1vmin;
   outline: none;
-  cursor: pointer;
 }
 
-#letters button:hover {
+/* #letters button:hover {
   background-color: grey;
   color: white;
-}
+  cursor: pointer;
+} */
 
 #letters button.wrong {
   background-color: var(--accent-dark);
