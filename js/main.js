@@ -13,14 +13,23 @@ let usedLetters;
 let wrongLetters;
 
 /*----- cached element references -----*/
+const guessEl = document.getElementById('guess');
 
 /*----- event listeners -----*/
+document.getElementById('letters')
+  .addEventListener('click', handleLetterClick);
 
 /*----- functions -----*/
 init();
 
+function handleLetterClick(evt) {
+  if (evt.target.tagName !== 'BUTTON') return;
+  console.dir(evt.target)
+}
+
 function render() {
-  
+  // render guessWord
+  guessEl.textContent = guessWord;
 }
 
 function init() {
