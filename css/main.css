@@ -5,6 +5,7 @@
 
 :root {
   --dark-accent: #BB4C3A;
+  --accent-light: #76bb76;
 }
 
 body {
@@ -15,20 +16,68 @@ body {
 }
 
 h1 {
-  margin-top: 10vmin;
+  margin-top: 5vmin;
+  color: grey;
+}
+
+#guess {
+  font-size: 6vmin;
+  letter-spacing: 2vmin;
+  color: grey;
 }
 
 header {
   background-color: var(--dark-accent);
   color: white;
   font: bold 5vmin Helvetica;
-  padding: 3vmin;
+  padding: 2vmin;
   text-align: center;
   width: 100%;
 }
 
 #gallows {
-  width: 75px;
-  height: 200px;
+  width: 15vmin;
+  height: 40vmin;
+  background-size: cover;
   background-image: url(../imgs/hangman.png);
+}
+
+#letters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 10vmin;
+}
+
+#letters button {
+  font-size: 3vmin;
+  font-weight: bold;
+  width: 6vmin;
+  height: 6vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .5vmin;
+  border: .5vmin solid grey;
+  color: grey;
+  border-radius: 1vmin;
+  outline: none;
+  cursor: pointer;
+}
+
+#letters button:hover {
+  background-color: grey;
+  color: white;
+}
+
+#letters button.wrong {
+  background-color: var(--accent-dark);
+  color: grey;
+  cursor: not-allowed;
+}
+
+#letters button.correct {
+  background-color: var(--accent-light);
+  color: grey;
+  cursor: not-allowed;
 }
