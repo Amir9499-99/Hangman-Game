@@ -15,6 +15,7 @@ let wrongLetters;
 
 /*----- cached element references -----*/
 const guessEl = document.getElementById('guess');
+const letterBtns = document.querySelectorAll('#letters > button');
 
 /*----- event listeners -----*/
 document.getElementById('letters')
@@ -38,12 +39,32 @@ function handleLetterClick(evt) {
     usedLetters.includes(letter) ||
     isGameOver()
   ) return;
-  console.dir(evt.target)
+  usedLetters.push(letter);
+  if (secretWord.includes(letter)) {
+    // Good guess!
+
+  } else {
+    // Bogus guess :(
+    wrongLetters.push(letter);
+  }
+
+  render();
 }
 
 function render() {
   // render guessWord
   guessEl.textContent = guessWord;
+  // render the buttons
+  letterBtns.forEach(function(btn) {
+    let letter = btn.textContent;
+    if (wrongLetters.includes(letter)) {
+      btn.className = 'wrong';
+    } else if (usedLetters.includes(letter)) {
+      btn.className = 'correct';
+    } else {
+      btn.className = '';
+    }
+  });
 }
 
 function init() {
