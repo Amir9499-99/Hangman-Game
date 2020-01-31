@@ -6,6 +6,7 @@ const WORDS = [
   'SEPARATION OF CONCERNS'
 ];
 const WRONG_GUESS_HUNG_COUNT = 6;
+const SPRITE_WIDTH = 11.25;
 
 /*----- app's state (variables) -----*/
 let secretWord;
@@ -18,6 +19,7 @@ const guessEl = document.getElementById('guess');
 const letterBtns = document.querySelectorAll('#letters > button');
 const msgEl = document.querySelector('h1');
 const replayBtn = document.getElementById('replay');
+const gallowsEl = document.getElementById('gallows');
 
 /*----- event listeners -----*/
 document.getElementById('letters')
@@ -55,7 +57,6 @@ function handleLetterClick(evt) {
     // Bogus guess :(
     wrongLetters.push(letter);
   }
-  replayBtn.style.visibility = isGameOver() ? 'visible' : 'hidden';
   render();
 }
 
@@ -73,7 +74,9 @@ function render() {
       btn.className = '';
     }
   });
-
+  replayBtn.style.visibility = isGameOver() ? 'visible' : 'hidden';
+  // render the gallows
+  gallowsEl.style.backgroundPositionX = `-${SPRITE_WIDTH * wrongLetters.length}vmin`;
   renderMessage();
 }
 
