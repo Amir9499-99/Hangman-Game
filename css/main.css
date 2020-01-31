@@ -29,7 +29,7 @@ h1 {
 header {
   background-color: var(--dark-accent);
   color: white;
-  font: bold 5vmin Helvetica;
+  font-size: 5vmin;
   padding: 2vmin;
   text-align: center;
   width: 100%;
