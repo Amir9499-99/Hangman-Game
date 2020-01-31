@@ -42,7 +42,11 @@ function handleLetterClick(evt) {
   usedLetters.push(letter);
   if (secretWord.includes(letter)) {
     // Good guess!
-
+    let newGuessWord = '';
+    for (let i = 0; i < secretWord.length; i++) {
+      newGuessWord += secretWord.charAt(i) === letter  ? letter : guessWord.charAt(i);
+    }
+    guessWord = newGuessWord;
   } else {
     // Bogus guess :(
     wrongLetters.push(letter);
